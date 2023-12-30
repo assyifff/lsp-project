@@ -19,11 +19,12 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Nama</th>
-          <th>No Telp</th>
-          <th>Asal kota</th>
-          <th>Jenis Kelamin</th>
-          <th>Posisi</th>
+          <!-- <th>Thumbnail</th> -->
+          <th>Nama Penulis</th>
+          <th>Judul Artikel</th>
+          <th>Isi Artikel</th>
+          <th>Kategori</th>
+          <th>Status</th>
           <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>
@@ -43,4 +44,11 @@
   $data['judul'] = 'Pegawai';
   $data['url'] = 'Pegawai/import';
   echo show_my_modal('modals/modal_import', 'import-pegawai', $data);
+?>
+
+<?php
+$msg = $this->session->flashdata('msg');
+if ($msg) {
+    echo '<div class="alert alert-info">' . $msg . '</div>';
+}
 ?>

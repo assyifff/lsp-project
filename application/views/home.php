@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-lg-4 col-xs-6">
     <div class="small-box bg-aqua">
       <div class="inner">
@@ -119,4 +119,4 @@
   };
 
   pieChart.Doughnut(PieData, pieOptions);
-</script>
+</script> -->

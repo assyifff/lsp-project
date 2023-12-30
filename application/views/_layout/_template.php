@@ -8,6 +8,7 @@
     <!-- css --> 
     <?php echo @$_css; ?>
 
+    <!-- logo -->
     <link rel="icon" href="<?php echo base_url(); ?>assets/img/logo_circle.png">
 
     <!-- jQuery 2.2.3 -->

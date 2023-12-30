@@ -6,18 +6,16 @@ class Pegawai extends AUTH_Controller {
 		parent::__construct();
 		$this->load->model('M_pegawai');
 		$this->load->model('M_posisi');
-		$this->load->model('M_kota');
 	}
 
 	public function index() {
 		$data['userdata'] = $this->userdata;
 		$data['dataPegawai'] = $this->M_pegawai->select_all();
 		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
 
 		$data['page'] = "pegawai";
-		$data['judul'] = "Data Pegawai";
-		$data['deskripsi'] = "Manage Data Pegawai";
+		$data['judul'] = "Kelola Artikel";
+		$data['deskripsi'] = "JeWePe";
 
 		$data['modal_tambah_pegawai'] = show_my_modal('modals/modal_tambah_pegawai', 'tambah-pegawai', $data);
 
@@ -30,10 +28,11 @@ class Pegawai extends AUTH_Controller {
 	}
 
 	public function prosesTambah() {
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
+		$this->form_validation->set_rules('nama_penulis', 'Nama Penulis', 'trim|required');
+		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'trim|required');
+		$this->form_validation->set_rules('isi_artikel', 'Isi Artikel', 'trim|required');
 		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
+		$this->form_validation->set_rules('status_publish', 'Status Publish', 'trim|required');
 
 		$data = $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
@@ -41,10 +40,10 @@ class Pegawai extends AUTH_Controller {
 
 			if ($result > 0) {
 				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pegawai Berhasil ditambahkan', '20px');
+				$out['msg'] = show_succ_msg('Data Artikel Berhasil ditambahkan', '20px');
 			} else {
 				$out['status'] = '';
-				$out['msg'] = show_err_msg('Data Pegawai Gagal ditambahkan', '20px');
+				$out['msg'] = show_err_msg('Data Artikel Gagal ditambahkan', '20px');
 			}
 		} else {
 			$out['status'] = 'form';
@@ -53,22 +52,22 @@ class Pegawai extends AUTH_Controller {
 
 		echo json_encode($out);
 	}
+	  
 
 	public function update() {
 		$id = trim($_POST['id']);
 
 		$data['dataPegawai'] = $this->M_pegawai->select_by_id($id);
 		$data['dataPosisi'] = $this->M_posisi->select_all();
-		$data['dataKota'] = $this->M_kota->select_all();
 		$data['userdata'] = $this->userdata;
 
 		echo show_my_modal('modals/modal_update_pegawai', 'update-pegawai', $data);
 	}
 
 	public function prosesUpdate() {
-		$this->form_validation->set_rules('nama', 'Nama', 'trim|required');
-		$this->form_validation->set_rules('kota', 'Kota', 'trim|required');
-		$this->form_validation->set_rules('jk', 'Jenis Kelamin', 'trim|required');
+		$this->form_validation->set_rules('nama_penulis', 'Nama Penulis', 'trim|required');
+		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'trim|required');
+		$this->form_validation->set_rules('isi_artikel', 'Isi Artikel', 'trim|required');
 		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
 
 		$data = $this->input->post();
@@ -77,10 +76,10 @@ class Pegawai extends AUTH_Controller {
 
 			if ($result > 0) {
 				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pegawai Berhasil diupdate', '20px');
+				$out['msg'] = show_succ_msg('Data Artikel Berhasil diupdate', '20px');
 			} else {
 				$out['status'] = '';
-				$out['msg'] = show_succ_msg('Data Pegawai Gagal diupdate', '20px');
+				$out['msg'] = show_succ_msg('Data Artikel Gagal diupdate', '20px');
 			}
 		} else {
 			$out['status'] = 'form';

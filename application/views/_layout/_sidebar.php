@@ -29,23 +29,23 @@
       <li <?php if ($page == 'pegawai') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Pegawai'); ?>">
           <i class="fa fa-user"></i>
-          <span>Data Pegawai</span>
+          <span>Kelola Artikel</span>
         </a>
       </li>
 
       <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Posisi'); ?>">
           <i class="fa fa-briefcase"></i>
-          <span>Data Posisi</span>
+          <span>Draft</span>
         </a>
       </li>
       
-      <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
+      <!-- <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Kota'); ?>">
           <i class="fa fa-location-arrow"></i>
           <span>Data Kota</span>
         </a>
-      </li>
+      </li> -->
     </ul>
     <!-- /.sidebar-menu -->
   </section>

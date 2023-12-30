@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kota extends AUTH_Controller {
@@ -185,4 +185,4 @@ class Kota extends AUTH_Controller {
 }
 
 /* End of file Kota.php */
-/* Location: ./application/controllers/Kota.php */
+/* Location: ./application/controllers/Kota.php */ -->

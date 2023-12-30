@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_kota extends CI_Model {
@@ -72,4 +72,4 @@ class M_kota extends CI_Model {
 }
 
 /* End of file M_kota.php */
-/* Location: ./application/models/M_kota.php */
+/* Location: ./application/models/M_kota.php */ -->
