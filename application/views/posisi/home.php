@@ -19,8 +19,8 @@
     <table id="list-data" class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Nama Posisi</th>
+          <th>No</th>
+          <th>Kategori</th>
           <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>

@@ -25,7 +25,7 @@
     <!-- Judul Artikel -->
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
-        <i class="glyphicon glyphicon-phone-alt"></i>
+        <i class="glyphicon glyphicon-list-alt"></i>
       </span>
       <input type="text" class="form-control" placeholder="Judul Artikel" name="judul_artikel" aria-describedby="sizing-addon2">
     </div>
@@ -33,7 +33,7 @@
     <!-- Isi Artikel -->
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
-        <i class="glyphicon glyphicon-phone-alt"></i>
+        <i class="glyphicon glyphicon-file"></i>
       </span>
       <textarea class="form-control custom-textarea" placeholder="Isi Artikel" name="isi_artikel" aria-describedby="sizing-addon2" rows="4"></textarea>
     </div>

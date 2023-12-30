@@ -67,6 +67,7 @@
 						nama_penulis = '" . $data['nama_penulis'] . "',
 						judul_artikel = '" . $data['judul_artikel'] . "',
 						isi_artikel = '" . $data['isi_artikel'] . "',
+						status_publish = '" . $data['status_publish'] . "',
 						id_posisi = " . $data['posisi'] . "
 					WHERE 
 						id = '" . $data['id'] . "'";
