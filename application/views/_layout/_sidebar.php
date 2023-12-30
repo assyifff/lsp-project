@@ -36,16 +36,9 @@
       <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Posisi'); ?>">
           <i class="fa fa-briefcase"></i>
-          <span>Draft</span>
+          <span>Kategori</span>
         </a>
       </li>
-      
-      <!-- <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Kota'); ?>">
-          <i class="fa fa-location-arrow"></i>
-          <span>Data Kota</span>
-        </a>
-      </li> -->
     </ul>
     <!-- /.sidebar-menu -->
   </section>
