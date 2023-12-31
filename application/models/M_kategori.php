@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_posisi extends CI_Model {
+class M_kategori extends CI_Model {
 	public function select_all() {
 		$data = $this->db->get('kategori');
 

@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Posisi extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('M_posisi');
+		$this->load->model('M_kategori');
 	}
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-		$data['dataPosisi'] = $this->M_posisi->select_all();
+		$data['dataPosisi'] = $this->M_kategori->select_all();
 
 		$data['page'] 		= "posisi";
 		$data['judul'] 		= "Data Kategori";
@@ -21,7 +21,7 @@ class Posisi extends AUTH_Controller {
 	}
 
 	public function tampil() {
-		$data['dataPosisi'] = $this->M_posisi->select_all();
+		$data['dataPosisi'] = $this->M_kategori->select_all();
 		$this->load->view('posisi/list_data', $data);
 	}
 
@@ -30,7 +30,7 @@ class Posisi extends AUTH_Controller {
 
 		$data 	= $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_posisi->insert($data);
+			$result = $this->M_kategori->insert($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -51,7 +51,7 @@ class Posisi extends AUTH_Controller {
 		$data['userdata'] 	= $this->userdata;
 
 		$id 				= trim($_POST['id']);
-		$data['dataPosisi'] = $this->M_posisi->select_by_id($id);
+		$data['dataPosisi'] = $this->M_kategori->select_by_id($id);
 
 		echo show_my_modal('modals/modal_update_posisi', 'update-posisi', $data);
 	}
@@ -61,7 +61,7 @@ class Posisi extends AUTH_Controller {
 
 		$data 	= $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_posisi->update($data);
+			$result = $this->M_kategori->update($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -80,7 +80,7 @@ class Posisi extends AUTH_Controller {
 
 	public function delete() {
 		$id = $_POST['id'];
-		$result = $this->M_posisi->delete($id);
+		$result = $this->M_kategori->delete($id);
 		
 		if ($result > 0) {
 			echo show_succ_msg('Kategori Berhasil dihapus', '20px');
