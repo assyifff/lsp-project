@@ -23,7 +23,7 @@
 					FROM 
 						pegawai
 					JOIN 
-						posisi ON pegawai.id_posisi = posisi.id";
+						posisi ON pegawai.id_kategori = posisi.id";
 		
 			$data = $this->db->query($sql);
 		
@@ -34,7 +34,7 @@
 			$sql = "SELECT 
 						pegawai.id AS id_pegawai, 
 						pegawai.nama_penulis AS nama_penulis, 
-						pegawai.id_posisi, 
+						pegawai.id_kategori, 
 						pegawai.judul_artikel AS judul, 
 						pegawai.isi_artikel AS isi_artikel,
 						pegawai.status_publish AS status_publish, 
@@ -43,7 +43,7 @@
 					FROM 
 						pegawai
 					JOIN 
-						posisi ON pegawai.id_posisi = posisi.id
+						posisi ON pegawai.id_kategori = posisi.id
 					WHERE 
 						pegawai.id = '{$id}'";
 		
@@ -53,7 +53,7 @@
 		}	
 
 		public function select_by_posisi($id) {
-			$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_posisi = {$id}";
+			$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_kategori = {$id}";
 
 			$data = $this->db->query($sql);
 
@@ -68,7 +68,7 @@
 						judul_artikel = '" . $data['judul_artikel'] . "',
 						isi_artikel = '" . $data['isi_artikel'] . "',
 						status_publish = '" . $data['status_publish'] . "',
-						id_posisi = " . $data['posisi'] . "
+						id_kategori = " . $data['posisi'] . "
 					WHERE 
 						id = '" . $data['id'] . "'";
 			
