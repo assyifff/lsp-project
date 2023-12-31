@@ -2,8 +2,8 @@
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
 	class M_pegawai extends CI_Model {
-		public function select_all_pegawai() {
-			$sql = "SELECT * FROM pegawai";
+		public function select_all_publish() {
+			$sql = "SELECT * FROM pegawai WHERE status_publish = 'publish'";
 
 			$data = $this->db->query($sql);
 

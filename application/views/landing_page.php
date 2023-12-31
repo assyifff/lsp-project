@@ -24,12 +24,6 @@
             text-align: center;
             margin: 20px 0;
         }
-        .object-fit-cover {
-        object-fit: cover;
-        object-position: center; /* Pusatkan objek gambar */
-        height: 200px; /* Atur tinggi yang diinginkan */
-        width: 100%; /* Agar lebar gambar 100% dari lebar card */
-    }
     </style>
 </head>
 <body>
@@ -62,34 +56,61 @@
         </div>
     </div>
 
-    <!-- Features Section -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-4">
+<!-- Features Section -->
+<div class="container mt-4">
+    <div class="row">
+        <?php foreach ($artikels as $artikel): ?>
+            <div class="col-md-12 mb-4">
+                <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="<?php echo base_url('assets/img/thumbnail.jpg'); ?>" class="card-img-top img-thumbnail img-fluid" alt="Article Image">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Feature 1</h5>
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod justo ac.</p>
-                                <a href="#" class="btn btn-primary">Read More</a>
+                                <h5 class="card-title"><?php echo $artikel->judul_artikel; ?></h5>
+                                <p class="card-text">Penulis: <?php echo $artikel->nama_penulis; ?></p>
+                                <a href="<?php echo base_url('artikeldetail/index/') . $artikel->id; ?>" class="btn btn-primary">Read More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </div>
 
 
 
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Ambil semua elemen dengan kelas 'read-more-btn'
+        var readMoreButtons = document.querySelectorAll('.read-more-btn');
+
+        // Loop melalui setiap tombol dan tambahkan event listener
+        readMoreButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Ambil ID target dari atribut data-target
+                var targetId = this.getAttribute('data-target');
+
+                // Toggle tampilan elemen dengan ID target
+                var targetElement = document.getElementById(targetId);
+                if (targetElement.style.display === 'none' || targetElement.style.display === '') {
+                    targetElement.style.display = 'block';
+                } else {
+                    targetElement.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+
     <!-- Include Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
 </body>
 </html>
