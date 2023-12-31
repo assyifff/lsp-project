@@ -43,7 +43,7 @@
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-briefcase"></i>
       </span>
-      <select name="posisi" class="form-control select2"  aria-describedby="sizing-addon2" style="width: 100%">
+      <select name="kategori" class="form-control select2"  aria-describedby="sizing-addon2" style="width: 100%">
         <?php
         foreach ($dataPosisi as $posisi) {
           ?>

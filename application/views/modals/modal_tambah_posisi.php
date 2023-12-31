@@ -9,7 +9,7 @@
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-user"></i>
       </span>
-      <input type="text" class="form-control" placeholder="Nama Kategori" name="posisi" aria-describedby="sizing-addon2">
+      <input type="text" class="form-control" placeholder="Nama Kategori" name="kategori" aria-describedby="sizing-addon2">
     </div>
 
     <!-- Button -->

@@ -31,7 +31,7 @@ class Pegawai extends AUTH_Controller {
 		$this->form_validation->set_rules('nama_penulis', 'Nama Penulis', 'trim|required');
 		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'trim|required');
 		$this->form_validation->set_rules('isi_artikel', 'Isi Artikel', 'trim|required');
-		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
+		$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
 		$this->form_validation->set_rules('status_publish', 'Status Publish', 'trim|required');
 
 		$data = $this->input->post();
@@ -68,7 +68,7 @@ class Pegawai extends AUTH_Controller {
 		$this->form_validation->set_rules('nama_penulis', 'Nama Penulis', 'trim|required');
 		$this->form_validation->set_rules('judul_artikel', 'Judul Artikel', 'trim|required');
 		$this->form_validation->set_rules('isi_artikel', 'Isi Artikel', 'trim|required');
-		$this->form_validation->set_rules('posisi', 'Posisi', 'trim|required');
+		$this->form_validation->set_rules('kategori', 'Kategori', 'trim|required');
 		$this->form_validation->set_rules('status_publish', 'Status Publish', 'trim|required');
 
 		$data = $this->input->post();

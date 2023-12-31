@@ -19,11 +19,11 @@
 						pegawai.isi_artikel AS isi, 
 						pegawai.status_publish AS status_publish,
 						pegawai.status AS status, 
-						posisi.nama AS posisi 
+						kategori.nama AS kategori 
 					FROM 
 						pegawai
 					JOIN 
-						posisi ON pegawai.id_kategori = posisi.id";
+						kategori ON pegawai.id_kategori = kategori.id";
 		
 			$data = $this->db->query($sql);
 		
@@ -39,11 +39,11 @@
 						pegawai.isi_artikel AS isi_artikel,
 						pegawai.status_publish AS status_publish, 
 						pegawai.status AS status,
-						posisi.nama AS posisi 
+						kategori.nama AS kategori 
 					FROM 
 						pegawai
 					JOIN 
-						posisi ON pegawai.id_kategori = posisi.id
+						kategori ON pegawai.id_kategori = kategori.id
 					WHERE 
 						pegawai.id = '{$id}'";
 		
@@ -52,7 +52,7 @@
 			return $data->row();
 		}	
 
-		public function select_by_posisi($id) {
+		public function select_by_kategori($id) {
 			$sql = "SELECT COUNT(*) AS jml FROM pegawai WHERE id_kategori = {$id}";
 
 			$data = $this->db->query($sql);
@@ -68,7 +68,7 @@
 						judul_artikel = '" . $data['judul_artikel'] . "',
 						isi_artikel = '" . $data['isi_artikel'] . "',
 						status_publish = '" . $data['status_publish'] . "',
-						id_kategori = " . $data['posisi'] . "
+						id_kategori = " . $data['kategori'] . "
 					WHERE 
 						id = '" . $data['id'] . "'";
 			
@@ -86,49 +86,6 @@
 			return $this->db->affected_rows();
 		}
 
-
-		// public function insert($data) {
-		// 	$id = md5(DATE('ymdhms') . rand());
-		// 	// $thumbnailPath = $this->uploadThumbnail($data['thumbnail']); 
-		
-		// 	$sql = "INSERT INTO pegawai 
-		// 			VALUES (
-		// 				'{$id}',
-		// 				'{$data['nama_penulis']}',
-		// 				'{$data['judul_artikel']}',
-		// 				'{$data['isi_artikel']}',
-		// 				{$data['posisi']},
-		// 				'publish',
-		// 				1
-		// 			)";
-		
-		// 	$this->db->query($sql);
-		
-		// 	return $this->db->affected_rows();
-		// }
-
-		// public function insert($data) {
-		// 	$id = md5(DATE('ymdhms') . rand());
-		// 	$sql = "INSERT INTO pegawai 
-		// 			VALUES (
-		// 				'{$id}',
-		// 				'{$data['nama_penulis']}',
-		// 				'{$data['judul_artikel']}',
-		// 				'{$data['isi_artikel']}',
-		// 				{$data['posisi']},
-		// 				'publish',
-		// 				1
-		// 			)";
-		 
-		// 	$this->db->query($sql);
-		 
-		// 	// Log or display the database error
-		// 	if ($this->db->error()) {
-		// 	   log_message('error', 'Database error: ' . $this->db->error());
-		// 	}
-		 
-		// 	return $this->db->affected_rows();
-		//  }
 		public function insert($data) {
 			$id = md5(DATE('ymdhms') . rand());
 			// $thumbnailPath = $this->uploadThumbnail($id);
@@ -139,7 +96,7 @@
 						'{$data['nama_penulis']}',
 						'{$data['judul_artikel']}',
 						'{$data['isi_artikel']}',
-						{$data['posisi']},
+						{$data['kategori']},
 						1,
 						'{$data['status_publish']}'
 					)";
@@ -160,27 +117,6 @@
 		
 			return $thumbnailPath;
 		}
-		 
-
-		public function insert_draft($data) {
-			$id = md5(DATE('ymdhms') . rand());
-		  
-			$sql = "INSERT INTO pegawai 
-					VALUES (
-					  '{$id}',
-					  '{$data['nama_penulis']}',
-					  '{$data['judul_artikel']}',
-					  '{$data['isi_artikel']}',
-					  {$data['posisi']},
-					  'draft',
-					  1
-					)";
-		  
-			$this->db->query($sql);
-		  
-			return $this->db->affected_rows();
-		  }
-		  
 		
 
 		public function insert_batch($data) {

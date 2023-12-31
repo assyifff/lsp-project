@@ -26,7 +26,7 @@ class Posisi extends AUTH_Controller {
 	}
 
 	public function prosesTambah() {
-		$this->form_validation->set_rules('posisi', 'posisi', 'trim|required');
+		$this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
 
 		$data 	= $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
@@ -57,7 +57,7 @@ class Posisi extends AUTH_Controller {
 	}
 
 	public function prosesUpdate() {
-		$this->form_validation->set_rules('posisi', 'posisi', 'trim|required');
+		$this->form_validation->set_rules('kategori', 'kategori', 'trim|required');
 
 		$data 	= $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
