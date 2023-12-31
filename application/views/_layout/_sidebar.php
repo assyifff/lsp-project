@@ -28,14 +28,14 @@
       
       <li <?php if ($page == 'pegawai') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Pegawai'); ?>">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-pencil"></i>
           <span>Kelola Artikel</span>
         </a>
       </li>
 
       <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Posisi'); ?>">
-          <i class="fa fa-briefcase"></i>
+          <i class="fa fa-folder"></i>
           <span>Kategori</span>
         </a>
       </li>
