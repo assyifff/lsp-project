@@ -32,7 +32,7 @@
 
 <?php show_my_confirm('konfirmasiHapus', 'hapus-dataPosisi', 'Hapus Data Ini?', 'Ya, Hapus Data Ini'); ?>
 <?php
-  $data['judul'] = 'Posisi';
-  $data['url'] = 'Posisi/import';
+  $data['judul'] = 'Kategori';
+  $data['url'] = 'Kategori/import';
   echo show_my_modal('modals/modal_import', 'import-posisi', $data);
 ?>

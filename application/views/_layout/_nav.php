@@ -1,11 +1,11 @@
-<nav class="navbar navbar-static-top" role="navigation">
+<nav class="navbar navbar-static-top" role="navigation" style="background-color: #183114">
   <!-- Sidebar toggle button-->
   <a href="<?php echo base_url(); ?>assets/#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
     <span class="sr-only">Toggle navigation</span>
   </a>
   <!-- Navbar Right Menu -->
-  <div class="navbar-custom-menu">
-    <ul class="nav navbar-nav">
+  <div class="navbar-custom-menu" >
+    <ul class="nav navbar-nav" >
       <!-- User Account Menu -->
       <li class="dropdown user user-menu">
         <!-- Menu Toggle Button -->
@@ -17,7 +17,7 @@
         </a>
         <ul class="dropdown-menu">
           <!-- The user image in the menu -->
-          <li class="user-header">
+          <li class="user-header" style="background-color: #57B049">
             <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
 
             <p>

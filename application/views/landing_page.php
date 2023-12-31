@@ -64,12 +64,17 @@
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="<?php echo base_url('assets/img/thumbnail.jpg'); ?>" class="card-img-top img-thumbnail img-fluid" alt="Article Image">
+                            <?php
+                                $thumbnailBlob = $artikel->thumbnail; // Ambil data blob dari objek $pegawai
+                                $thumbnailDataUri = 'data:image/jpeg;base64,' . base64_encode($thumbnailBlob); // Konversi blob ke data URI
+                            ?>
+                            <img src="<?php echo $thumbnailDataUri; ?>" alt="Thumbnail" class="card-img-top img-thumbnail img-fluid" alt="Article Image" style="height: 200px; object-fit: cover">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $artikel->judul_artikel; ?></h5>
                                 <p class="card-text">Penulis: <?php echo $artikel->nama_penulis; ?></p>
+                                
                                 <a href="<?php echo base_url('artikeldetail/index/') . $artikel->id; ?>" class="btn btn-primary">Read More</a>
                             </div>
                         </div>

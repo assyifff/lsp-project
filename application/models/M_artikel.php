@@ -18,6 +18,7 @@
 						artikel.judul_artikel AS judul, 
 						artikel.isi_artikel AS isi, 
 						artikel.status_publish AS status_publish,
+						artikel.thumbnail AS thumbnail,
 						artikel.status AS status, 
 						kategori.nama AS kategori 
 					FROM 
@@ -38,6 +39,7 @@
 						artikel.judul_artikel AS judul, 
 						artikel.isi_artikel AS isi_artikel,
 						artikel.status_publish AS status_publish, 
+						artikel.thumbnail AS thumbnail,
 						artikel.status AS status,
 						kategori.nama AS kategori 
 					FROM 

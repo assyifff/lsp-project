@@ -19,6 +19,7 @@
           <th>Isi Artikel</th>
           <th>Kategori</th>
           <th>Status</th>
+          <th>Thumbnail</th>
           <th style="text-align: center;">Aksi</th>
         </tr>
       </thead>

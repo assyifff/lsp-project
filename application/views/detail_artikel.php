@@ -30,7 +30,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="article-content">
-                <img src="<?php echo base_url('assets/img/thumbnail.jpg'); ?>" class="card-img-top img-thumbnail img-fluid mx-auto d-block" alt="Article Image" style="max-width: 600px;">
+                <?php
+                    $thumbnailBlob = $artikel->thumbnail; // Ambil data blob dari objek $pegawai
+                    $thumbnailDataUri = 'data:image/jpeg;base64,' . base64_encode($thumbnailBlob); // Konversi blob ke data URI
+                ?>
+                <img src="<?php echo $thumbnailDataUri; ?>" alt="Thumbnail" class="card-img-top img-thumbnail img-fluid mx-auto d-block" alt="Article Image" style="max-width: 600px; height: 400px; object-fit: cover">
                 <?php
                 if (isset($artikel)) {
                     echo '<h5 class="text-left mt-3">' . $artikel->judul . '</h5>';
