@@ -36,7 +36,7 @@
           </span>
           <select name="kategori" class="form-control select2"  aria-describedby="sizing-addon2" style="width: 100%">
             <?php
-            foreach ($dataPosisi as $posisi) {
+            foreach ($dataKategori as $posisi) {
               ?>
               <option value="<?php echo $posisi->id; ?>" <?php if($posisi->id == $dataPegawai->id_kategori){echo "selected='selected'";} ?>><?php echo $posisi->nama; ?></option>
               <?php

@@ -11,7 +11,7 @@ class Pegawai extends AUTH_Controller {
 	public function index() {
 		$data['userdata'] = $this->userdata;
 		$data['dataPegawai'] = $this->M_pegawai->select_all();
-		$data['dataPosisi'] = $this->M_kategori->select_all();
+		$data['dataKategori'] = $this->M_kategori->select_all();
 
 		$data['page'] = "pegawai";
 		$data['judul'] = "Kelola Artikel";
@@ -58,7 +58,7 @@ class Pegawai extends AUTH_Controller {
 		$id = trim($_POST['id']);
 
 		$data['dataPegawai'] = $this->M_pegawai->select_by_id($id);
-		$data['dataPosisi'] = $this->M_kategori->select_all();
+		$data['dataKategori'] = $this->M_kategori->select_all();
 		$data['userdata'] = $this->userdata;
 
 		echo show_my_modal('modals/modal_update_pegawai', 'update-pegawai', $data);

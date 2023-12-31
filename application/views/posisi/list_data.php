@@ -1,6 +1,6 @@
 <?php
   $no = 1;
-  foreach ($dataPosisi as $posisi) {
+  foreach ($dataKategori as $posisi) {
     ?>
     <tr>
       <td><?php echo $no; ?></td>

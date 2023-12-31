@@ -9,7 +9,7 @@ class Posisi extends AUTH_Controller {
 
 	public function index() {
 		$data['userdata'] 	= $this->userdata;
-		$data['dataPosisi'] = $this->M_kategori->select_all();
+		$data['dataKategori'] = $this->M_kategori->select_all();
 
 		$data['page'] 		= "posisi";
 		$data['judul'] 		= "Data Kategori";
@@ -21,7 +21,7 @@ class Posisi extends AUTH_Controller {
 	}
 
 	public function tampil() {
-		$data['dataPosisi'] = $this->M_kategori->select_all();
+		$data['dataKategori'] = $this->M_kategori->select_all();
 		$this->load->view('posisi/list_data', $data);
 	}
 
@@ -51,7 +51,7 @@ class Posisi extends AUTH_Controller {
 		$data['userdata'] 	= $this->userdata;
 
 		$id 				= trim($_POST['id']);
-		$data['dataPosisi'] = $this->M_kategori->select_by_id($id);
+		$data['dataKategori'] = $this->M_kategori->select_by_id($id);
 
 		echo show_my_modal('modals/modal_update_posisi', 'update-posisi', $data);
 	}
