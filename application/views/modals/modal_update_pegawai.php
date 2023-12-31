@@ -3,7 +3,7 @@
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <h3 style="display:block; text-align:center;">Update Artikel</h3>
       <form method="POST" id="form-update-pegawai">
-        <input type="hidden" name="id" value="<?php echo $dataPegawai->id_pegawai; ?>">
+        <input type="hidden" name="id" value="<?php echo $dataPegawai->id; ?>">
 
         <!-- Nama Penulis -->
         <div class="input-group form-group">

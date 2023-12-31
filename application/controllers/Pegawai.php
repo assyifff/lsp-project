@@ -4,13 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Pegawai extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('M_pegawai');
+		$this->load->model('M_artikel');
 		$this->load->model('M_kategori');
 	}
 
 	public function index() {
 		$data['userdata'] = $this->userdata;
-		$data['dataPegawai'] = $this->M_pegawai->select_all();
+		$data['dataPegawai'] = $this->M_artikel->select_all();
 		$data['dataKategori'] = $this->M_kategori->select_all();
 
 		$data['page'] = "pegawai";
@@ -23,7 +23,7 @@ class Pegawai extends AUTH_Controller {
 	}
 
 	public function tampil() {
-		$data['dataPegawai'] = $this->M_pegawai->select_all();
+		$data['dataPegawai'] = $this->M_artikel->select_all();
 		$this->load->view('pegawai/list_data', $data);
 	}
 
@@ -36,7 +36,7 @@ class Pegawai extends AUTH_Controller {
 
 		$data = $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_pegawai->insert($data);
+			$result = $this->M_artikel->insert($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -57,7 +57,7 @@ class Pegawai extends AUTH_Controller {
 	public function update() {
 		$id = trim($_POST['id']);
 
-		$data['dataPegawai'] = $this->M_pegawai->select_by_id($id);
+		$data['dataPegawai'] = $this->M_artikel->select_by_id($id);
 		$data['dataKategori'] = $this->M_kategori->select_all();
 		$data['userdata'] = $this->userdata;
 
@@ -73,7 +73,7 @@ class Pegawai extends AUTH_Controller {
 
 		$data = $this->input->post();
 		if ($this->form_validation->run() == TRUE) {
-			$result = $this->M_pegawai->update($data);
+			$result = $this->M_artikel->update($data);
 
 			if ($result > 0) {
 				$out['status'] = '';
@@ -92,7 +92,7 @@ class Pegawai extends AUTH_Controller {
 
 	public function delete() {
 		$id = $_POST['id'];
-		$result = $this->M_pegawai->delete($id);
+		$result = $this->M_artikel->delete($id);
 
 		if ($result > 0) {
 			echo show_succ_msg('Data Pegawai Berhasil dihapus', '20px');
