@@ -13,6 +13,15 @@
           <input type="text" class="form-control" placeholder="Nama Penulis" name="nama_penulis" aria-describedby="sizing-addon2" value="<?php echo $dataPegawai->nama_penulis; ?>">
         </div>
 
+        <!-- Thumbnail -->
+        <div class="input-group form-group">
+          <span class="input-group-addon" id="sizing-addon2">
+            <i class="glyphicon glyphicon-picture"></i> 
+          </span>
+          <span class="input-group-addon" id="sizing-addon2">Thumbnail</span>
+          <input type="file" class="form-control" name="thumbnail" accept="image/*" aria-describedby="sizing-addon2" value="<?php echo $dataPegawai->thumbnail; ?>">
+        </div>
+
         <!-- Judul Artikel -->
         <div class="input-group form-group">
           <span class="input-group-addon" id="sizing-addon2">

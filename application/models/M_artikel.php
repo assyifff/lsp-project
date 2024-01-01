@@ -63,21 +63,52 @@
 		}
 
 
+		// public function update($data) {
+		// 	$sql = "UPDATE artikel 
+		// 			SET 
+		// 				nama_penulis = '" . $data['nama_penulis'] . "',
+		// 				judul_artikel = '" . $data['judul_artikel'] . "',
+		// 				isi_artikel = '" . $data['isi_artikel'] . "',
+		// 				status_publish = '" . $data['status_publish'] . "',
+		// 				id_kategori = " . $data['kategori'] . "
+		// 			WHERE 
+		// 				id = '" . $data['id'] . "'";
+			
+		// 	$this->db->query($sql);
+		
+		// 	return $this->db->affected_rows();
+		// }
+
 		public function update($data) {
+			$id = $data['id'];
+		
+			// Handle thumbnail upload
+			$thumbnail = $this->uploadThumbnail($id);
+		
 			$sql = "UPDATE artikel 
 					SET 
-						nama_penulis = '" . $data['nama_penulis'] . "',
-						judul_artikel = '" . $data['judul_artikel'] . "',
-						isi_artikel = '" . $data['isi_artikel'] . "',
-						status_publish = '" . $data['status_publish'] . "',
-						id_kategori = " . $data['kategori'] . "
+						nama_penulis = ?,
+						judul_artikel = ?,
+						isi_artikel = ?,
+						status_publish = ?,
+						id_kategori = ?,
+						thumbnail = ?
 					WHERE 
-						id = '" . $data['id'] . "'";
-			
-			$this->db->query($sql);
+						id = ?";
+		
+			$this->db->query($sql, array(
+				$data['nama_penulis'],
+				$data['judul_artikel'],
+				$data['isi_artikel'],
+				$data['status_publish'],
+				$data['kategori'],
+				$thumbnail,
+				$id
+			));
 		
 			return $this->db->affected_rows();
 		}
+		
 		
 
 		public function delete($id) {
@@ -88,36 +119,65 @@
 			return $this->db->affected_rows();
 		}
 
+		// public function insert($data) {
+		// 	$id = md5(DATE('ymdhms') . rand());
+		// 	// $thumbnailPath = $this->uploadThumbnail($id);
+		
+		// 	$sql = "INSERT INTO artikel 
+		// 			VALUES (
+		// 				'{$id}',
+		// 				'{$data['nama_penulis']}',
+		// 				'{$data['judul_artikel']}',
+		// 				'{$data['isi_artikel']}',
+		// 				{$data['kategori']},
+		// 				1,
+		// 				'{$data['status_publish']}'
+		// 			)";
+		
+		// 	$this->db->query($sql);
+		
+		// 	return $this->db->affected_rows();
+		// }
+
 		public function insert($data) {
 			$id = md5(DATE('ymdhms') . rand());
-			// $thumbnailPath = $this->uploadThumbnail($id);
+		
+			// Handle thumbnail upload
+			$thumbnail = $this->uploadThumbnail($id);
+
 		
 			$sql = "INSERT INTO artikel 
-					VALUES (
-						'{$id}',
-						'{$data['nama_penulis']}',
-						'{$data['judul_artikel']}',
-						'{$data['isi_artikel']}',
-						{$data['kategori']},
-						1,
-						'{$data['status_publish']}'
-					)";
+					VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 		
-			$this->db->query($sql);
+			$this->db->query($sql, array(
+				$id,
+				$data['nama_penulis'],
+				$data['judul_artikel'],
+				$data['isi_artikel'],
+				$data['kategori'],
+				1,
+				$data['status_publish'],
+				$thumbnail
+			));
 		
 			return $this->db->affected_rows();
 		}
 
-		
-		
 		private function uploadThumbnail($id) {
-			// Menggunakan folder uploads sebagai contoh. Sesuaikan dengan kebutuhan Anda.
-			$uploadDirectory = 'assets/img/';
-			$thumbnailPath = $uploadDirectory . $id . '.png'; // Ubah ekstensi sesuai dengan jenis thumbnail
+			$config['upload_path'] = './assets/img/';
+			$config['file_name'] = $id;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';  // Adjust allowed file types as needed
+			$config['overwrite'] = true;
 		
-			move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnailPath);
+			$this->load->library('upload', $config);
 		
-			return $thumbnailPath;
+			if ($this->upload->do_upload('thumbnail')) {
+				$data = $this->upload->data();
+				return file_get_contents($data['full_path']);  // Return binary data
+			} else {
+				// Handle upload failure
+				return false;
+			}
 		}
 		
 

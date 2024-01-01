@@ -4,7 +4,7 @@
   <h3 style="display:block; text-align:center;">Tambah Artikel</h3>
 
   <!-- Nama penulis -->
-  <form id="form-tambah-pegawai" method="POST">
+  <form id="form-tambah-pegawai" method="POST" enctype="multipart/form-data">
     <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-user"></i>
@@ -13,13 +13,13 @@
     </div>
 
     <!-- Thumbnail -->
-    <!-- <div class="input-group form-group">
+    <div class="input-group form-group">
       <span class="input-group-addon" id="sizing-addon2">
         <i class="glyphicon glyphicon-picture"></i> 
       </span>
       <span class="input-group-addon" id="sizing-addon2">Thumbnail</span>
       <input type="file" class="form-control" name="thumbnail" accept="image/*" aria-describedby="sizing-addon2">
-    </div> -->
+    </div>
 
 
     <!-- Judul Artikel -->
